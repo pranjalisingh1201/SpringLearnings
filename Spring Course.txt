@@ -1,0 +1,374 @@
+Spring Boot
+================
+
+Dependency Injection and IOC 
+
+
+Spring Core
+=================
+
+DI and IOC Completed with Setter Injection and Constructor Injections.
+
+
+Spring MVC
+=================
+
+1) Create project with Spring Web.
+
+2) spring-boot-starter-web is the dependency we use to create web apps or MVC projects.
+
+3) Controller --> Handle requests.
+				  Process Requests.
+				  Keep data in Models.
+				  Returns data with view.
+				  To call a controller we also have a front controller---> Handles the requests and maps to the unique controller client is requesting for.
+				 
+4) Model --> Holds Data.
+
+5) View --> Layout of the webapp.	
+
+6) Front Controllers are Dispatcher Servlets.
+
+			 
+Spring ORM
+=================
+
+Object Relational Mapping 
+===========================
+
+1) Table name is Class Name 
+
+2) Variables in class are columns in Table.
+
+3) One Class can have multiple Objects, also one Table can have multiple rows.
+
+4) Each Object will represnt one row in the table.
+
+5) For Mapping we use ORM , this is done by JPA (JAVA Persistance API).
+
+6) We have Spring Application and we have Hibernate and we have Database or MySQL and to connect these we have Spring ORM.
+
+7) Spring ORM creates an Instance for Hibernate and Configurations are done in Spring configuration.
+
+8) Begin/Commit/Rollback Transactions will be taken care by Spring Tx - Spring Transactions.
+
+Why Hibernate and not JDBC:
+============================
+
+Because it can handle transactions in a good way also we can acheive ORM here.
+
+
+Spring JPA
+================
+
+Spring REST(RESTful Webservice or Web API.)
+======================
+
+1) No Actions -- Nouns
+
+2) Stateless -- No Session on the server --  Returns state of the object from a normal POJO class -- Only Data -- We can achive this by Representational State called REST .
+
+3) No Parameters in Address bar.
+
+4) Client is not a browser --Server to Server Call.
+
+5) REST uses in-built functions of hhtp Protocol -- GET/POST/PUT/DELETE
+
+6) Jackson is used to convert Data in json and vice versa.
+
+
+Spring AOP
+=================
+
+Conccepts:
+
+1) Aspect : a class with all aop functions.
+
+2) Join Point : point of the execution where we want to call the method.
+
+3) Advice: the actual method.
+
+4) Pointcut : the expression we use to call the advice.
+
+5) Weaving : when to call the advice or connect it.
+
+Types of Advice :
+
+1) Before Advice : Before calling the Advice.
+
+2) After Returning Advice : After Calling the Advice.
+
+3) After Throwing Advice : 
+
+4) After Finally Advice : 
+
+5) Around Advice : In between the call of advice.
+
+
+Cloud 
+=========
+
+1) Group of Computers on the server.
+
+2) In local machine the application or the webservice is not present for the whole world and not anyone can access it.
+
+3) For that we would require a public ip address and a domain name also a server to host the app.
+
+4) We have cloud providers who provide the resources.
+
+5) On- Premise:
+===================
+we had everything with us.
+
+Functions
+Application
+Runtime+Containers
+Operating System and Management Tools.
+Networking storage and servers
+Data Centre
+
+6) IAAS:
+==================
+We dont have the last steps:
+
+Functions
+Application
+Runtime+Containers
+Operating System and Management Tools.
+Networking storage and servers --Provided by Service Provider.
+Data Centre --Provided by Service Provider.
+
+7)  CAAS: Containers
+==================
+We dont have the last steps:
+
+Functions
+Application
+Runtime+Containers --Use Kubernetes or Docker
+Operating System and Management Tools. --Provided by Service Provider.
+Networking storage and servers --Provided by Service Provider.
+Data Centre --Provided by Service Provider.
+
+7)  PAAS: 
+==================
+We dont have the last steps:
+
+Functions
+Application
+Runtime+Containers --Provided by Service Provider.
+Operating System and Management Tools. --Provided by Service Provider.
+Networking storage and servers --Provided by Service Provider.
+Data Centre --Provided by Service Provider.
+
+7)  SAAS: GMAIL / DRIVER /GOOGLE PHOTOS
+===========================================
+We dont have the last steps:
+
+Functions --Provided by Service Provider.
+Application --Provided by Service Provider.
+Runtime+Containers --Provided by Service Provider.
+Operating System and Management Tools. --Provided by Service Provider.
+Networking storage and servers --Provided by Service Provider.
+Data Centre --Provided by Service Provider.
+
+Cloud Native Application
+==============================
+
+1) Codebase : One Codebase tracked in revision control,many deploy -- GIT
+                                Deploy
+								===========
+								1)Production
+								2)Staging
+								3)Engineering
+		Codebase--------------->
+
+2)Dependencies : We should not share the library folder in our project we share the pomfile with needed dependencies with required versions.
+We can use a manifest file.So anyone can download the dependencies when required.
+
+Explicitly Declare and isolate dependencies.
+
+3) Configurations : Dont hardcode the environment variables like passwords.
+
+4) Backing Services : Treat Backing Services as attached Resources.
+
+5) Build, Release , run : Create a release but while making changes do it in build and then when u create a release of it, it will be of a new version so it makes it easier to back out.
+
+6) Processes : Execute the app as one or more stateless processes.Do not store anything in a session.
+
+7) Port Binding : Export Services via port binding
+
+8) Concurrency : Scale out via the process model.
+
+9) Disposability : Maximize robustness with fast startup and graceful shutdown of the application without lossing data.
+
+10) Dev/Prod Parity : Keep development, staging and production as similar as possible.
+
+11) Logs : Treat logs as event streams
+
+12) Admin Processes : Run admin/management tasks as one-off processes.
+
+
+Quiz App:
+===========
+
+1) We are going to build a Monolithic Apllication first and then we will break it down into micro-services.
+
+Using Dependencies like : spring web, Mysql, data jpa, lambok.
+
+Installed : STS and Mysql Workbench.
+
+Steps to Build this App:
+---------------------------
+
+Database
+-----------
+1) Created Database Question with table questiontb.
+
+Application
+-----------
+
+1) Created a question controller to get all question from database.
+2) With the help of Rest Controller to make this file a controller and Getmapping is used to map the function to allquestions endpoint, also request mapping for mapping the request path question to dispatcher.
+3) Now to get all the data from database , we use multiple layers in the app.
+4) We have 3 layers - Controller Layer - Request handling
+					  Service Layer - Business Logic or Processing 
+					  Dao Layer   - Database class
+5) We create Entity class to represent table and variables in this class are columns of the tables,this class is called model in mvc.
+
+So Class name  - Table name
+	Class fields - Table Columns
+	Class object is one row of table data (ORM).
+	
+5 Types  of Status Codes
+-------------------------
+
+1) Informational Responses (100-199)
+2) Sucessful Responses (200-299)
+3) Redirection messages (300-399)
+4) Client Error Responses (400-499)
+5) Server Error Responsees (500-599)
+
+Now we are creating two independent micro-services out of quiz app.
+
+So Quiz service and Question service both will have their own independent databases.
+
+Now earlier quiz service needed access to question database but now quiz service cannot access the question service database hence we need to make a call to question service to get the data from question database which is known as service to service call.
+
+Now to make these service independent we need to implement these 3 functions in question service.
+
+- generate questions while creating the quiz
+- getQuestions while fetching the quiz
+- getScores to get no of correct answers.
+
+
+
+In microservices, RestTemplate is used to register other microservices but the problem is we never know where the multiple instances of the other micro-services are running , so for that we require a service registry and service dicovery.
+- Quiz Service is trying to discover Question service hence question services needs to be discoverable.
+- So we use a server to discover a particular service or api and a famous server is Eureka Server.
+- We need a Eureka server and all the microservices, they have to register themselves to the Eureka Server.And then one microservice can search another microservice from the Eureka Server using Eureka client.
+- So every microservice which wants to search will also be having Eureka client.So they will search basically.And so by doing this we are solving a problem of IP address and port number.
+- And with the help Feign, you can actually request directly to the service with the service name.
+
+
+## Load Balancer
+
+- To make call to Idle Instance of a service rather than Busy Instances of the same application.
+
+- We have loadbalancer in open fiegn dependency
+
+## API Gateway
+
+- Used to prvide a interface for user to enter and exit.
+- Used in JWT Authentication and Logging.
+
+
+
+
+Lex Course 
+------------
+
+
+Spring Microservices
+----------------------
+
+- This Course Contains 
+
+- Cloud Based Microservices - What is cloud?
+- Centralized Configuration - Cloud Config , Consul
+- Load Balancing - Ribbon, Spring Cloud, Load Balancer
+- Service Discovery - Eureka Consul
+- Resilience - Hystrix and Resilience4J
+- API Gateway - Zuul and Spring Cloud Gateway
+- Declarative Client - Feign 
+- Tracing - Sleuth , Zipkin and Prometheus
+- Security - OAuth
+
+
+When the entire codebase is monolithic , there are issues related:
+
+- Maintenance
+- Scalability
+- Deployement 
+- Reliability
+- Making it cloud native, etc.
+
+Microservices is an architectural style of developing an application as a suite of small services, each capable of independently deployable.
+
+
+Goals :
+
+- Split a Monolithic Application into microservices.
+- Store Configuration details on cloud using Cloud Config.
+- Load Balance requests between microservices using Ribbon.
+- Discover Services in cloud using Eureka.
+- Increase resilience through Hystrix.
+- Use asynchronous communication to improve performance.
+- Create an API gateway using Zuul.
+- Simplify REST calls through feign.
+- Secure Microservices using OAuth through Spring Cloud Security.
+- Monitor your microservices through Turbine, Sleuth and Zipkin.
+
+
+Monolithic Applications
+-----------------------
+
+- When we deploy the entire application as a single WAR file or JAR then it is a monolithic app.
+
+- Mono - single. If our entire codebase is a single war/jar file it meas , it is a monolithic app.
+
+- In monolithic apps, all functionalities are part of a single process. Such an application may consume APIs of other applications and may also expose some of its functionalities as service.
+
+- Twitter, Facebook, Amazon etc all started off as monolithic applications.
+
+Need of Microservices
+-----------------------
+
+There are several monolithic applications functioning without any problem then why is not ideal solution?
+
+- Monolithic Applications was a good solution for the requirements of earlier times.
+- But with recent needs for better user experience, monolithic applications fail to deliver the following functionalities.
+- The entire app must be redeployed for a small change increasing the downtime.
+- Larger the app, larger deployment time and startup time is required.
+- If specific parts of the application experience a larger load enite app must be deployed in multiple servers to take care of scaling. This takes the resources and increases maintenance problems.
+- Large code becomes intimidating
+- If later any functionalities can be written using python or scala or c# , modification is extremely difficult.
+
+There are alternatives of monolithic architecture such as service oriented architecture , Microservices.
+
+- Microservices is an architectural style.
+- The applications is made up of smaller apps that communicationwith each other through open protocols like HTTP.
+- Microservices are distributed in nature.
+- It can either decompose a monolithic application into microservice or can develop a microservice-based apps from beginning.
+
+Characterstics of Microservices- 
+----------------------------------
+
+- Idividually Deployed - one microservice can be deployed in a separate docker image with a different enviromment of other.
+- Individually Developed - development of one microservice does not depend in completion of another microservice.
+- Individaully Maintained - changes to microservice does not effect entire application.
+- Individaully Scaled - one of the microservice is experiencing an increase in load can be scaled alone.
+- Communicated through lightweight protocols like REST.
+- Individaully Monitored
+- Apps are split based on business needs.
+- Have decentralized Databases.
+- In strong support of DevOps.
