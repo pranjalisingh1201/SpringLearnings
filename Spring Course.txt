@@ -283,11 +283,6 @@ In microservices, RestTemplate is used to register other microservices but the p
 
 
 
-
-Lex Course 
-------------
-
-
 Spring Microservices
 ----------------------
 
